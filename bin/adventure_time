@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require 'sounder'
+require 'adventure_time'
+
+sounds = {
+  'bmo: I am quieter now'                  => 'bmo-i_am_quieter_now',
+  'bmo: It goes in my butt'                => 'bmo-it_goes_in_my_butt',
+  "finn: Dude, let's just kill him"        => 'finn-dude_lets_just_kill_him_and_get_the_armor',
+  "finn: Finger protection"                => 'finn-finger_protection',
+  "finn: I am complicated"                 => 'finn-i_am_complicated',
+  "finn: No more games, no more pajamas"   => 'finn-no_more_games_no_more_pajamas',
+  "finn: Stealing is wrong, doofus"        => 'finn-stealing_is_wrong_doofus',
+  "finn: This is radical"                  => 'finn-this_is_radical',
+  "finn & jake: Interesting smells"        => 'finn_jake-interesing_smells_in_poop',
+  "finn & jake: Responsible"               => 'finn_jake-responsible',
+  "finn & jake: Skadow"                    => 'finn_jake-skadow',
+  "jake: Ya killed her"                    => 'jake-ahp_ya_killed_her',
+  "jake: Laugh"                            => 'jake-laugh',
+  "jake: That's like math!"                => 'jake-thats_like_math',
+  "lsp: Luscious Lips"                     => 'lsp-luscious_lips',
+  "song: Daddy, why did you eat my fries?" => 'song-daddy_why_did_you_eat_my_fries'
+}
+
+at = Sounder::SoundGroup.new Hash[sounds.map do |name, file|
+  [name, File.expand_path("../../lib/support/#{file}.m4a", __FILE__)]
+end]
+
+usage = at.usage.map do |line|
+  "  #{line}"
+end
+usage = ["adventure_time version #{AdventureTime::VERSION}","Usage:"] + usage
+usage = usage.join "\n"
+
+if ARGV.size == 1 && ARGV[0] == 'random'
+  at.random
+elsif ARGV.size >= 1 && ARGV[0] != '-h' && ARGV[0] != 'help' && ARGV[0] != '--help'
+  begin
+    at.play ARGV.join ' '
+  rescue Sounder::UnknownSoundError
+    puts "Error: \"#{ARGV.join ' '}\" does not match a known sound"
+    puts usage
+  end
+else
+  puts usage
+end
