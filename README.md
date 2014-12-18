@@ -1,26 +1,14 @@
 # AdventureTime
 
-TODO: Write a gem description
+Adventure Time Soundboard
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'adventure_time'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install adventure_time
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ adventure_time # run with no options for usage information
 
 ## Contributing
 
