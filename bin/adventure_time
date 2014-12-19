@@ -4,22 +4,24 @@ require 'sounder'
 require 'adventure_time'
 
 sounds = {
-  'bmo: I am quieter now'                  => 'bmo-i_am_quieter_now',
-  'bmo: It goes in my butt'                => 'bmo-it_goes_in_my_butt',
-  "finn: Dude, let's just kill him"        => 'finn-dude_lets_just_kill_him_and_get_the_armor',
-  "finn: Finger protection"                => 'finn-finger_protection',
-  "finn: I am complicated"                 => 'finn-i_am_complicated',
-  "finn: No more games, no more pajamas"   => 'finn-no_more_games_no_more_pajamas',
-  "finn: Stealing is wrong, doofus"        => 'finn-stealing_is_wrong_doofus',
-  "finn: This is radical"                  => 'finn-this_is_radical',
-  "finn & jake: Interesting smells"        => 'finn_jake-interesing_smells_in_poop',
-  "finn & jake: Responsible"               => 'finn_jake-responsible',
-  "finn & jake: Skadow"                    => 'finn_jake-skadow',
-  "jake: Ya killed her"                    => 'jake-ahp_ya_killed_her',
-  "jake: Laugh"                            => 'jake-laugh',
-  "jake: That's like math!"                => 'jake-thats_like_math',
-  "lsp: Luscious Lips"                     => 'lsp-luscious_lips',
-  "song: Daddy, why did you eat my fries?" => 'song-daddy_why_did_you_eat_my_fries'
+  'bmo: I am quieter now'                     => 'bmo-i_am_quieter_now',
+  'bmo: It goes in my butt'                   => 'bmo-it_goes_in_my_butt',
+  "finn: Dude, let's just kill him"           => 'finn-dude_lets_just_kill_him_and_get_the_armor',
+  "finn: Finger protection"                   => 'finn-finger_protection',
+  "finn: I am complicated"                    => 'finn-i_am_complicated',
+  "finn: No more games, no more pajamas"      => 'finn-no_more_games_no_more_pajamas',
+  "finn: Stealing is wrong, doofus"           => 'finn-stealing_is_wrong_doofus',
+  "finn: This is radical"                     => 'finn-this_is_radical',
+  "finn & jake: Interesting smells"           => 'finn_jake-interesing_smells_in_poop',
+  "finn & jake: Responsible"                  => 'finn_jake-responsible',
+  "finn & jake: Skadow"                       => 'finn_jake-skadow',
+  "jake: Ya killed her"                       => 'jake-ahp_ya_killed_her',
+  "jake: Laugh"                               => 'jake-laugh',
+  "jake: That's like math!"                   => 'jake-thats_like_math',
+  "lsp: Luscious Lips"                        => 'lsp-luscious_lips',
+  'pb: I should not have drank that much tea' => 'pb-drank_that_much_tea',
+  'pb: Bloo Bloo Bloo!'                       => 'pb-bloo_bloo_bloo',
+  "song: Daddy, why did you eat my fries?"    => 'song-daddy_why_did_you_eat_my_fries'
 }
 
 at = Sounder::SoundGroup.new Hash[sounds.map do |name, file|
