@@ -4,8 +4,8 @@ require 'sounder'
 require 'adventure_time'
 
 sounds = {
-  'bmo: I am quieter now'                  => 'bmo-i_am_quieter_now',
-  'bmo: It goes in my butt'                => 'bmo-it_goes_in_my_butt',
+  "bmo: I am quieter now"                  => 'bmo-i_am_quieter_now',
+  "bmo: It goes in my butt"                => 'bmo-it_goes_in_my_butt',
   "finn: Dude, let's just kill him"        => 'finn-dude_lets_just_kill_him_and_get_the_armor',
   "finn: Finger protection"                => 'finn-finger_protection',
   "finn: I am complicated"                 => 'finn-i_am_complicated',
@@ -22,25 +22,7 @@ sounds = {
   "song: Daddy, why did you eat my fries?" => 'song-daddy_why_did_you_eat_my_fries'
 }
 
-at = Sounder::SoundGroup.new Hash[sounds.map do |name, file|
-  [name, File.expand_path("../../lib/support/#{file}.m4a", __FILE__)]
-end]
-
-usage = at.usage.map do |line|
-  "  #{line}"
-end
-usage = ["adventure_time version #{AdventureTime::VERSION}","Usage:"] + usage
-usage = usage.join "\n"
-
-if ARGV.size == 1 && ARGV[0] == 'random'
-  at.random
-elsif ARGV.size >= 1 && ARGV[0] != '-h' && ARGV[0] != 'help' && ARGV[0] != '--help'
-  begin
-    at.play ARGV.join ' '
-  rescue Sounder::UnknownSoundError
-    puts "Error: \"#{ARGV.join ' '}\" does not match a known sound"
-    puts usage
-  end
-else
-  puts usage
-end
+adventure_time_soundboard = Sounder::Soundboard.new sounds: sounds,
+                                                    version_info: "adventure_time version #{AdventureTime::VERSION}",
+                                                    root: File.expand_path("../../lib/support", __FILE__)
+adventure_time_soundboard.run ARGV
