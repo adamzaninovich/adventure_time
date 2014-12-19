@@ -4,6 +4,7 @@ require 'sounder'
 require 'adventure_time'
 
 sounds = {
+  "BMO: I am quieter now"                     => 'bmo-i_am_quieter_now',
   "BMO: It goes in my butt"                   => 'bmo-it_goes_in_my_butt',
   "Finn: Dude, let's just kill him"           => 'finn-dude_lets_just_kill_him_and_get_the_armor',
   "Finn: Finger protection"                   => 'finn-finger_protection',
